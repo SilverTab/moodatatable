@@ -1,0 +1,102 @@
+/*
+MooDataTable CSS
+Unless specified most of the properties can be changed to achieve a custom look...
+*/
+div.moo-table {
+	font-family: calibri;
+	font-size: 12pt;
+	border: 1px solid #444;
+}
+
+div.moo-table table {
+	width: 100%; !important
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	text-align: left;
+}
+
+div.moo-table table thead th {
+	background: #666;
+	font-weight: normal;
+	padding: 3px 3px 3px 5px;
+	color: #eee;
+	cursor: pointer;
+	line-height: 1.1em;
+}
+
+div.moo-table table thead th.moo-active-column {
+	font-weight: bold;
+	text-decoration: underline;
+	padding-left: 11px;
+}
+
+div.moo-table table thead th.moo-active-asc {
+	background: #666 url(../img/asc.gif) 2px center no-repeat;
+}
+
+div.moo-table table thead th.moo-active-desc {
+	background: #666 url(../img/desc.gif) 2px center no-repeat;
+}
+
+div.moo-table table tbody tr {
+	background: #fff;
+	
+}
+
+div.moo-table table tbody tr.moo-table-even {
+	background: #E9E9E9;
+}
+
+div.moo-table table tbody tr:hover {
+	background: #FFFFC6;
+}
+
+div.moo-table table tbody td {
+	padding: 3px 3px 3px 5px;
+	font-size: 0.9em;
+	border-bottom: 1px solid #bbb;
+}
+
+div.moo-table table tbody tr.moo-table-last td {
+	border: none;
+}
+
+div.moo-table tfoot {
+	background: #444;
+	font-size: 0.8em;
+	color: #eee;
+	padding: 3px;
+}
+
+div.moo-table tfoot a {
+	color: #eee;
+}
+
+div.moo-table tfoot span.moo-foot-left {
+	float: left;
+	padding-left: 8px;
+}
+
+div.moo-table tfoot span.moo-foot-right {
+	float: right;
+	padding-right: 8px;
+}
+
+div.moo-table tfoot span.moo-foot-right a {
+	margin-right: 3px;
+	text-decoration: none;
+}
+
+div.moo-table tfoot span.moo-foot-right a:hover {
+	text-decoration: underline;
+}
+
+div.moo-table tfoot span.moo-foot-right span {
+	margin-right: 3px;
+}
+
+div.moo-table tfoot span.moo-foot-right span.moo-active-page {
+	font-weight: bold;
+	text-decoration: underline;
+}

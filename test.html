@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>test</title>
+		<link rel="stylesheet" href="css/moodatatable.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+		<script src="src/mootools-1.2-core-nc.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/mootools-1.2-more.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/moodatatable.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			window.addEvent('domready', function(){
+				myMooTable = new MooDataTable('myTable', {
+					headerIds: ['id', 'name', 'email'],
+					headerCaptions: ['ID', 'Name', 'Email']
+				});
+			});
+		</script>
+	</head>
+	<body style="font-family: calibri, helvetica;">
+		<h2>MooDataTable Demo 1</h2>
+		<p>
+			A simple data table. It requests the data to a server-side script that returns a JSON set of data...
+		</p>
+		<div id="myTable" class="moo-table">
+
+		</div>
+		
+		<p>
+			<a href="#" onclick="myMooTable.reloadActivePage(); return false;">Reload Current Page</a>
+		</p>
+	</body>
+</html>
