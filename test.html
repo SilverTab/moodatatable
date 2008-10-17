@@ -11,8 +11,11 @@
 		<script type="text/javascript" charset="utf-8">
 			window.addEvent('domready', function(){
 				myMooTable = new MooDataTable('myTable', {
-					headerIds: ['id', 'name', 'email'],
-					headerCaptions: ['ID', 'Name', 'Email']
+					headers: [
+						{id: "id", caption: "ID", sortable: true},
+						{id: "name", caption: "Name", sortable: true},
+						{id: "email", caption: "Email", sortable: false}
+					]
 				});
 			});
 		</script>

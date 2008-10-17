@@ -9,14 +9,13 @@ var MooDataTable = new Class({
 		url: 'post.php',
 		method: 'get',
 		perPage: 15,
-		headerCaptions: [],
-		headerIds: [],
+		// headers: [],
 		width: 500
 	},
 	
 	initialize: function(el, options) {
 		this.setOptions(options);
-		this.el = $type(el) === 'string' ? $(el) : el;
+		this.el =  $(el);
 		this.pages = 0;
 		this.createElements();
 	},
@@ -42,19 +41,21 @@ var MooDataTable = new Class({
 		
 	},
 	createHeaders: function() {
-		var headerCaptions = this.options.headerCaptions;
-		var headerIds = this.options.headerIds;
 		var headerTr = this.tableHead.getChildren("tr")[0];
 		
 		// Create the column headers
-		headerCaptions.each(function(header, index){
-			var headerTd = new Element('th', {id: headerIds[index]});
-			headerTd.set('html', headerCaptions[index]);
+		this.options.headers.each(function(header, index){
+			var headerTd = new Element('th', {
+				id: header['id']
+			});
+			headerTd.set('html', header['caption']);
 			
 			// add the click event for column re-ordering
-			headerTd.addEvent("click", function(arg1){
-				this.reorder(arg1.get('id'));
-			}.bind(this, headerTd));
+			if(header['sortable']) {
+				headerTd.addEvent("click", function(arg1){
+					this.reorder(arg1.get('id'));
+				}.bind(this, headerTd));
+			}
 			this.headersEl.push(headerTd);
 			headerTd.inject(headerTr);
 		}, this);
@@ -65,7 +66,7 @@ var MooDataTable = new Class({
 		// set the sort order to DESC, it will be inverted to ASC by default on first call...
 		this.sortOrder = "DESC";
 		
-		this.reorder(headerIds[0]);
+		this.reorder(this.options.headers[0]['id']);
 	},
 	
 	reorder: function(id) {
@@ -298,7 +299,6 @@ var MooDataTable = new Class({
 	},
 	
 	pageClicked: function(page) {
-		
 		
 		if($type(page) === "string") {
 			if(page === "next" && this.page < this.pages) {
